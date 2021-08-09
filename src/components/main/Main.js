@@ -11,10 +11,10 @@ import styles from '../../styles/main';
 import ContentContainer from '../Layout/Content';
 import ScrollToTop from '../ScrollToTop'; // add scroll to top arrow if required
 import oxygenList from '../../api/oxygen/oxygenData'; // table data from api
-import { COLUMNS } from '../../api/oxygen/columns'; // registered table columns
+// import { COLUMNS } from '../../api/oxygen/columns'; // registered table columns
 import { BasicTable } from '../BasicTable'; // reusable and responsive react-table with sorting, pagination and global filter
 
-const Main = ({width, entities, servicesproviders}) => (
+const Main = ({width, entities, servicesproviders, COLUMNS}) => (
   <ContentContainer>
      <Head>
       <title>
@@ -29,6 +29,7 @@ const Main = ({width, entities, servicesproviders}) => (
       </Grid>
       <Grid item item xs={12} sm={12} md={12} style={{ overflow: "scroll"}}>
         <BasicTable checkWidth={width} tableData={oxygenList} tableColumn={COLUMNS}/>
+        {console.log(COLUMNS)}
       </Grid>
     </Grid>
     {/* scroll to top arrow for mobile and web */}

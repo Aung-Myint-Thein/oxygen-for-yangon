@@ -3,10 +3,13 @@ import React from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Main from '../src/components/main/Main';
 
+const oxygenList = [];
+const COLUMNS = [];
+
 export default function Home({entities, servicesproviders}) {
   return (
     <Layout>
-      <Main entities={entities} servicesproviders={servicesproviders} />
+      <Main entities={entities} servicesproviders={servicesproviders} COLUMNS={COLUMNS} />
     </Layout>
   );
 }
@@ -25,8 +28,49 @@ export async function getServerSideProps(){
     range: 'servicesproviders!A1:I28',
   });
 
-  console.log(responseEntities.data.values);
-  console.log(responseServiceProvider.data.values);
+  // console.log("1",responseEntities.data.values);
+  // console.log("2",responseServiceProvider.data.values);
+
+  let entity_coulumns = responseEntities.data.values[0];
+  for( var i = 0; i < entity_coulumns.length; i++){
+    // let entity_coulumns[i] 
+    let column = {
+      Header : entity_coulumns[i],
+      accessor : entity_coulumns[i],
+    }
+    COLUMNS.push(column)
+  }
+  
+  let serviceproviderColumns =  responseServiceProvider.data.values[0];
+  for( var i = 0; i < serviceproviderColumns.length; i++){
+    let column = {
+      Header : serviceproviderColumns[i],
+      accessor : serviceproviderColumns[i],
+    }
+    COLUMNS.push(column)
+  }
+
+  for( var i = 1 ; i < 5; i++){
+    let entities =  responseEntities.data.values[i];
+
+    let oxygenObj = {
+      id: i,
+    };
+
+    for(var j = 0 ; j < entities.length ; j++){
+      oxygenObj[`${entity_coulumns[j]}`] = entities[j];
+    }
+    
+    oxygenList.push(oxygenObj);
+  }
+
+  console.log("list",oxygenList)
+  for( var i = 1 ; i < 5; i++){
+    let serviceProviders =  responseServiceProvider.data.values[i];
+    console.log(serviceproviderColumns);
+    console.log(serviceProviders);
+
+  }
   
   return {
     props: {
