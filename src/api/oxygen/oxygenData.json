@@ -1,0 +1,17 @@
+
+[
+  {"id": 1,"avaliablity":"ရႏိုင္ပါသည္", "township": "သာေကတ", "address": "အေနာ္မာ၊ သာေကတ", "phone": "09421004119","refilledTime": "ၿဖည့္ရန္ နံနက္ 9 နာရီ" ,  "refilledType": "10L"},
+  {"id": 2,"avaliablity":"အတည္ၿပဳေပးပါမည္", "township": "ပန္းဘဲတန္း", "address": "အေနာ္ရထာ(အေပါ္)", "phone": "09421384384","refilledTime": "ၿဖည့္ရန္ နံနက္ 10 နာရီ" ,  "refilledType": "15L"},
+  {"id": 3,"avaliablity":"ရနိင္ပါသည္", "township": "ဒဂံု(ေၿမာက္)", "address": "စက္မွဴဇံု", "phone": "09421039573","refilledTime": "ၿဖည့္ရန္ နံနက္ 7 နာရီ" ,  "refilledType": "8L"},
+  {"id": 4,"avaliablity":"ရႏိုင္ပါသည္", "township": "မဂၤလာေတာင္ညြန့္", "address": "စက္ရံုလမ္း", "phone": "09421043534","refilledTime": "ၿဖည့္ရန္ နံနက္ 10 နာရီ" ,  "refilledType": "12L"},
+  {"id": 5,"avaliablity":"ရႏိုင္ပါသည္", "township": "သာေကတ", "address": "နြယ္ေအးရပ္ကြက္၊ သာေကတ", "phone": "09432404119","refilledTime": "ၿဖည့္ရန္ နံနက္ 11 နာရီ" ,  "refilledType": "20L"},
+  {"id": 6,"avaliablity":"အတည္ၿပဳေပးပါမည္", "township": "ေဒါပံု", "address": "သင္ေဘာက်င္း", "phone": "09421004234","refilledTime": "ၿဖည့္ရန္ နံနက္ 8 နာရီ" ,  "refilledType": "10L"},
+  {"id": 7,"avaliablity":"ရႏိုင္ပါသည္", "township": "ပုစြန္ေတာင္", "address": "အထက္ပုစြန္ေတာင္လမ္း", "phone": "09421432443","refilledTime": "ၿဖည့္ရန္ နံနက္ 7 နာရီ" ,  "refilledType": "15L"},
+  {"id": 8,"avaliablity":"ရႏိုင္ပါသည္", "township": "သာေကတ", "address": "အေနာ္မာ၊ သာေကတ", "phone": "09421004119","refilledTime": "ၿဖည့္ရန္ နံနက္ 9 နာရီ" ,  "refilledType": "10L"},
+  {"id": 9,"avaliablity":"အတည္ၿပဳေပးပါမည္", "township": "ပန္းဘဲတန္း", "address": "အေနာ္ရထာ(အေပါ္)", "phone": "09421384384","refilledTime": "ၿဖည့္ရန္ နံနက္ 10 နာရီ" ,  "refilledType": "15L"},
+  {"id": 10,"avaliablity":"ရနိင္ပါသည္", "township": "ဒဂံု(ေၿမာက္)", "address": "စက္မွဴဇံု", "phone": "09421039573","refilledTime": "ၿဖည့္ရန္ နံနက္ 7 နာရီ" ,  "refilledType": "8L"},
+  {"id": 11,"avaliablity":"ရႏိုင္ပါသည္", "township": "မဂၤလာေတာင္ညြန့္", "address": "စက္ရံုလမ္း", "phone": "09421043534","refilledTime": "ၿဖည့္ရန္ နံနက္ 10 နာရီ" ,  "refilledType": "12L"},
+  {"id": 12,"avaliablity":"ရႏိုင္ပါသည္", "township": "သာေကတ", "address": "နြယ္ေအးရပ္ကြက္၊ သာေကတ", "phone": "09432404119","refilledTime": "ၿဖည့္ရန္ နံနက္ 11 နာရီ" ,  "refilledType": "20L"},
+  {"id": 13,"avaliablity":"အတည္ၿပဳေပးပါမည္", "township": "ေဒါပံု", "address": "သင္ေဘာက်င္း", "phone": "09421004234","refilledTime": "ၿဖည့္ရန္ နံနက္ 8 နာရီ" ,  "refilledType": "10L"},
+  {"id": 14,"avaliablity":"ရႏိုင္ပါသည္", "township": "ပုစြန္ေတာင္", "address": "အထက္ပုစြန္ေတာင္လမ္း", "phone": "09421432443","refilledTime": "ၿဖည့္ရန္ နံနက္ 7 နာရီ" ,  "refilledType": "15L"}
+]
