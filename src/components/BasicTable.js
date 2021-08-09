@@ -38,7 +38,7 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
     data,
     initialState: {
       pageIndex : 0,
-      hiddenColumns: ['nameMM', 'coordinate', 'publish', 'isActive', 'entID', 'updatedBy', 'infoClass', 'remark']
+      hiddenColumns: ['nameMM', 'coordinate', 'publish', 'isActive', 'entID', 'updatedBy', 'infoClass', 'remark', 'entityType', 'township', 'serviceCategory', 'availableService']
     }
   }, useGlobalFilter, useSortBy, usePagination,);
   const {globalFilter, pageIndex, pageSize} = state;
