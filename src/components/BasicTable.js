@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {
   Grid, IconButton, Typography,InputBase,Select,FormControl,
 } from "@material-ui/core";
-import {useTable, useGlobalFilter, useSortBy, usePagination,} from 'react-table';
+import {useTable, useGlobalFilter, useSortBy, usePagination, useColumnOrder} from 'react-table';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import SortIcon from '@material-ui/icons/Sort';
@@ -33,14 +33,20 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
     gotoPage,
     pageCount,
     setPageSize,
+    setColumnOrder
   } = useTable({
     columns,
     data,
     initialState: {
       pageIndex : 0,
-      hiddenColumns: ['nameMM', 'coordinate', 'publish', 'isActive', 'entID', 'updatedBy', 'infoClass', 'remark', 'entityType', 'township', 'serviceCategory', 'availableService']
+      hiddenColumns: [
+        'nameMM', 'coordinate', 'publish', 'isActive', 
+        'entID', 'updatedBy', 'infoClass', 'remark', 
+        'entityType', 'township', 'serviceCategory', 
+        'availableService'],
+      columnOrder: ['nameEN', 'address', 'service spec', 'latest remark', 'lastUpdated', 'openingHours', 'contact', 'fbAddress']
     }
-  }, useGlobalFilter, useSortBy, usePagination,);
+  }, useGlobalFilter, useSortBy, usePagination, useColumnOrder);
   const {globalFilter, pageIndex, pageSize} = state;
 
   const Pagination = () => {

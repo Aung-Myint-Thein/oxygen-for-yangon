@@ -3,10 +3,10 @@ import React from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Main from '../src/components/main/Main';
 
-export default function Home({entities, servicesproviders, columns}) {
+export default function Home({entities, columns}) {
   return (
     <Layout>
-      <Main entities={entities} servicesproviders={servicesproviders} columns={columns} />
+      <Main entities={entities} columns={columns} />
     </Layout>
   );
 }
@@ -59,7 +59,7 @@ export async function getServerSideProps(){
     COLUMNS.push(column)
   }
 
-  for( var i = 1; i < responseEntities.data.values.length; i++){
+  for(var i = 1; i < responseEntities.data.values.length; i++){
     let entity =  responseEntities.data.values[i];
 
     let oxygenObj = {
@@ -75,30 +75,20 @@ export async function getServerSideProps(){
     // get provider for the entity
     let provider = responseServiceProvider.data.values.filter(provider => provider[0] === entity[0]);
     
-    if (provider.length > 0) {
-      for(var j = 0 ; j < provider[0].length ; j++){
-        oxygenObj[`${serviceproviderColumns[j]}`] = provider[0][j];
+    for(var j = 0 ; j < provider.length ; j++){
+      for(var k = 0 ; k < serviceproviderColumns.length ; k++){
+        oxygenObj[`${serviceproviderColumns[k]}`] = provider[j][k] ? provider[j][k] : '';
       }
-    }
-    
-    // for(var j = 0 ; j < provider.length ; j++){
-    //   for(var k = 0 ; k < serviceproviderColumns.length ; k++){
-    //     console.log(entities[0], provider[j][k]);
-    //     oxygenObj[`${serviceproviderColumns[k]}`] = provider[j][k];
-    //   }
-    // }
 
-    // console.log(oxygenObj);
-
-    if (oxygenObj.publish === 'TRUE' && oxygenObj.isActive === 'TRUE') {
-      oxygenList.push(oxygenObj);
+      if (oxygenObj.publish === 'TRUE' && oxygenObj.isActive === 'TRUE') {
+        oxygenList.push(oxygenObj);
+      }
     }
   }
   
   return {
     props: {
       entities: oxygenList, 
-      servicesproviders: responseServiceProvider.data.values,
       columns: COLUMNS
     }
   }

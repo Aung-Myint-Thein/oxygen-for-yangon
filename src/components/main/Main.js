@@ -14,7 +14,7 @@ import oxygenList from '../../api/oxygen/oxygenData'; // table data from api
 // import { COLUMNS } from '../../api/oxygen/columns'; // registered table columns
 import { BasicTable } from '../BasicTable'; // reusable and responsive react-table with sorting, pagination and global filter
 
-const Main = ({width, entities, servicesproviders, columns}) => (
+const Main = ({width, entities, columns}) => (
   <ContentContainer>
      <Head>
       <title>
