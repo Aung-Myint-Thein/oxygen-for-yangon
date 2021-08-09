@@ -24,6 +24,9 @@ export async function getServerSideProps(){
     spreadsheetId: process.env.SHEET_ID,
     range: 'servicesproviders!A1:I28',
   });
+
+  console.log(responseEntities.data.values);
+  console.log(responseServiceProvider.data.values);
   
   return {
     props: {
