@@ -36,7 +36,10 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
   } = useTable({
     columns,
     data,
-    initialState: { pageIndex : 0}
+    initialState: {
+      pageIndex : 0,
+      hiddenColumns: ['nameMM', 'coordinate', 'publish', 'isActive', 'entID', 'updatedBy', 'infoClass', 'remark']
+    }
   }, useGlobalFilter, useSortBy, usePagination,);
   const {globalFilter, pageIndex, pageSize} = state;
 
