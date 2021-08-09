@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {  withWidth } from '@material-ui/core';
+import { withWidth } from '@material-ui/core';
 import {
   Grid, Typography
 } from "@material-ui/core";
@@ -14,8 +14,7 @@ import oxygenList from '../../api/oxygen/oxygenData'; // table data from api
 import { COLUMNS } from '../../api/oxygen/columns'; // registered table columns
 import { BasicTable } from '../BasicTable'; // reusable and responsive react-table with sorting, pagination and global filter
 
-
-const Main = ({width}) => (
+const Main = ({width, entities, servicesproviders}) => (
   <ContentContainer>
      <Head>
       <title>
@@ -26,7 +25,7 @@ const Main = ({width}) => (
     <Grid container direction="column" justifyContent="center"  spacing={3}
     style={styles.tableContainer}>
       <Grid item item xs={12} sm={12} md={12}>
-      <Typography>Places for Oxygen</Typography>
+      <Typography>Places for Oxygen {entities[0][0]} {servicesproviders[0][1]}</Typography>
       </Grid>
       <Grid item item xs={12} sm={12} md={12} style={{ overflow: "scroll"}}>
         <BasicTable checkWidth={width} tableData={oxygenList} tableColumn={COLUMNS}/>
@@ -36,7 +35,6 @@ const Main = ({width}) => (
     <ScrollToTop checkWidth={width}/>
     </ContentContainer>
 );
-
 
 Main.propTypes = {
   width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
