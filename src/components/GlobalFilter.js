@@ -9,12 +9,19 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
+import * as ga from '../api/ga';
 
 const GlobalFilter = ({filter, setFilter, columnList}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState(filter);
   const [searchColumns , setSearchColumns] = useState(["avaliablity","township", "address", "phone", "refilledTime", "refilledType"])
   const onChange = useAsyncDebounce(value => {
+    ga.event({
+      action: "search",
+      params : {
+        search_term: value
+      }
+    })
     setFilter(value || undefined)
   }, 1000);
 
