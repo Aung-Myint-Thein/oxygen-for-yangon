@@ -44,6 +44,9 @@ export async function getServerSideProps(){
         Header : entity_coulumns[i],
         accessor : entity_coulumns[i],
       }
+      // if(entity_coulumns[i] === "facebook"){
+      //   column['Cell'] = ({ row }) => <a href={row.name}>{row.name}</a>
+      // }
 
       COLUMNS.push(column)
     }
@@ -86,6 +89,8 @@ export async function getServerSideProps(){
     }
   }
   
+  console.log("oxygenList",oxygenList);
+  console.log("COLUMNS",COLUMNS)
   return {
     props: {
       entities: oxygenList, 
