@@ -1,10 +1,10 @@
 import { google } from 'googleapis';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../src/components/Layout/Layout';
 import Main from '../src/components/main/Main';
 
-export default function Home({entities, columns, navLinks}) {
-
+export default function Service({entities, columns, navLinks}) {
   return (
     <Layout navLinks={navLinks}>
       <Main entities={entities} columns={columns} />
@@ -12,7 +12,12 @@ export default function Home({entities, columns, navLinks}) {
   );
 }
 
-export async function getServerSideProps(){
+export async function getServerSideProps({ params }){
+
+  console.log(params);
+  const service = params.service[0];
+
+  var filteredOxygenList = [];
   const oxygenList = [];
   const COLUMNS = [];
   const navLinks = [
@@ -110,9 +115,13 @@ export async function getServerSideProps(){
       title: uniqueServicesArray[i], path: `/${uniqueServicesArray[i]}`
     })
   }
+
+  filteredOxygenList = oxygenList.filter(function (provider){
+      return provider.ဝန်ဆောင်မှုအမျိုးအစား === service  ;
+  });
   return {
     props: {
-      entities: oxygenList, 
+      entities: filteredOxygenList, 
       columns: COLUMNS,
       navLinks: navLinks
     }
