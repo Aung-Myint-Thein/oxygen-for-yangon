@@ -40,11 +40,11 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
     initialState: {
       pageIndex : 0,
       hiddenColumns: [
-        'nameMM', 'coordinate', 'publish', 'isActive', 
-        'entID', 'updatedBy', 'infoClass', 'remark', 
-        'entityType', 'township', 'serviceCategory', 
-        'availableService'],
-      columnOrder: ['nameEN', 'address', 'service spec', 'latest remark', 'lastUpdated', 'openingHours', 'contact', 'fbAddress']
+        'Eအမည်', 'coordinate', 'publish', 'isActive', 
+        'updatedBy', 'infoClass', 'Eမှတ်ချက်', 
+        'ဝန်ဆောင်မှု', 'မြို့နယ်', 'အမျိုးအစား', 
+        'ဝန်ဆောင်မှုအမျိုးအစား'],
+      columnOrder: ['အမည်', 'လိပ်စာ', 'အချက်အလက်', 'မှတ်ချက်', 'နောက်ဆုံးအတည်ပြုချိန်', 'ဖွင့်ချိန်', 'ဖုန်း', 'facebook']
     }
   }, useGlobalFilter, useSortBy, usePagination, useColumnOrder);
   const {globalFilter, pageIndex, pageSize} = state;

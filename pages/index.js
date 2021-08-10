@@ -39,16 +39,22 @@ export async function getServerSideProps(){
   // getting the entity column
   let entity_coulumns = responseEntities.data.values[0];
   for( var i = 0; i < entity_coulumns.length; i++){
-    if (entity_coulumns[i] !== "lastUpdated") {
-      let column = {
-        Header : entity_coulumns[i],
-        accessor : entity_coulumns[i],
-      }
-      // if(entity_coulumns[i] === "facebook"){
-      //   column['Cell'] = ({ row }) => <a href={row.name}>{row.name}</a>
-      // }
+    if (entity_coulumns[i] !== "နောက်ဆုံးအတည်ပြုချိန်") {
+      if (["အမည်", "မှတ်ချက်"].includes(entity_coulumns[i])) {
+        let column = {
+          Header : 'E' + entity_coulumns[i],
+          accessor : 'E' + entity_coulumns[i],
+        }
 
-      COLUMNS.push(column)
+        COLUMNS.push(column)
+      } else {
+        let column = {
+          Header : entity_coulumns[i],
+          accessor : entity_coulumns[i],
+        }
+
+        COLUMNS.push(column)
+      }
     }
   }
   
@@ -70,7 +76,7 @@ export async function getServerSideProps(){
     };
 
     for(var j = 0 ; j < entity.length ; j++){
-      if (entity_coulumns[i] !== "lastUpdated") {
+      if (entity_coulumns[i] !== "နောက်ဆုံးအတည်ပြုချိန်") {
         oxygenObj[`${entity_coulumns[j]}`] = entity[j];
       }
     }
