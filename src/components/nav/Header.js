@@ -8,11 +8,11 @@ import styles from '../../styles/header';
 
 const navLinks = [
   { title: `အားလုံးကြည့်မယ်`, path: `/` },
-  { title: `အောက်ဆီဂျင်အိုးဝယ်မယ်`, path: `o2_buy` },
-  { title: `အောက်ဆီဂျင်ဖြည့်မယ်`, path: `o2_refill` },
-  { title: `အောက်ဆီဂျင်ငှါးမယ်`, path: `o2_rent` },
-  { title: `သွေးစစ်မယ်`, path: `lab` },
-  { title: `ဆေးဝယ်မယ်`, path: `med` },
+  { title: `အောက်ဆီဂျင်အိုးဝယ်မယ်`, path: `/o2_buy` },
+  { title: `အောက်ဆီဂျင်ဖြည့်မယ်`, path: `/o2_refill` },
+  { title: `အောက်ဆီဂျင်ငှါးမယ်`, path: `/o2_rent` },
+  { title: `သွေးစစ်မယ်`, path: `/lab` },
+  { title: `ဆေးဝယ်မယ်`, path: `/med` },
 ];
 
 const Header = ({checkWidth}) => {  
@@ -42,7 +42,7 @@ const Header = ({checkWidth}) => {
         }}>
         {navLinks.map(({ title, path }) => (
             <Grid item xs={6} sm={4} md={2} key={title}>
-              <Link href={path === '/' ? path : `/service/${path}`} key={title}>
+              <Link href={path} key={title}>
                 <a style={styles.linkText}>
                   {title}
                 </a>
