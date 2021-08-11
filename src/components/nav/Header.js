@@ -6,17 +6,9 @@ import Link from "next/link";
 
 import styles from '../../styles/header';
 
-const navLinks = [
-  { title: `Oxygen`, path: `/` },
-  { title: `Doctor`, path: `/doctor` },
-  { title: `Pharmacy`, path: `/pharmacy` },
-  { title: `Rescue`, path: `/rescue` },
-  { title: `Knowledge`, path: `/article` },
-  { title: `Help`, path: `/help` },
-];
 
 
-const Header = ({checkWidth}) => {
+const Header = ({checkWidth, navLinks}) => {
 
   return (
    <Grid container direction="column"  

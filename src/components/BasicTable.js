@@ -173,11 +173,20 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
             return (
               <tr {...row.getRowProps()}>
               {row.cells.map((cell)=> {
-                return checkWidth === 'xs' ? 
-                <p {...cell.getCellProps()}>
-                  <span>{cell.render('Header')}{' : '}</span>{cell.render('Cell')}
-                </p> // table cell ui for mobile
-                : <td {...cell.getCellProps()}>{cell.render('Cell')}</td> // for table cell ui for web
+                return checkWidth === 'xs' ?
+                  cell.column.Header === 'facebook' ?
+                    <p {...cell.getCellProps()}>
+                      <a href={cell.value}>{cell.value}</a>
+                    </p>
+                    : 
+                    <p {...cell.getCellProps()}>
+                      <span>{cell.render('Header')}{' : '}</span>{cell.render('Cell')}
+                    </p> // table cell ui for mobile
+                : 
+                  cell.column.Header === 'facebook' ?
+                    <td {...cell.getCellProps()}><a href={cell.value}>{cell.value}</a></td> 
+                    :
+                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td> // for table cell ui for web
               })}
             </tr>
             )

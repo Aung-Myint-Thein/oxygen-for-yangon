@@ -7,7 +7,7 @@ import Header from '../nav/Header';
 import styles from '../../styles/layout';
 import globalStyles from '../../styles/global'
 
-const Layout = ({ children, width }) => (
+const Layout = ({ children, width, navLinks }) => (
   <Grid container style={styles.contentContainer}>
      <style jsx global>
         {globalStyles}
@@ -21,7 +21,7 @@ const Layout = ({ children, width }) => (
       margin: '0 5%',
      }}>
        <header style={{width: '100%',}}>
-         <Header checkWidth={width} />
+         <Header checkWidth={width} navLinks={navLinks}/>
       </header>
       <main style={{width: '100%',}}>
         {children}
