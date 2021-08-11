@@ -6,10 +6,16 @@ import Link from "next/link";
 
 import styles from '../../styles/header';
 
+const navLinks = [
+  { title: `အားလုံးကြည့်မယ်`, path: `/` },
+  { title: `အောက်ဆီဂျင်အိုးဝယ်မယ်`, path: `o2_buy` },
+  { title: `အောက်ဆီဂျင်ဖြည့်မယ်`, path: `o2_refill` },
+  { title: `အောက်ဆီဂျင်ငှါးမယ်`, path: `o2_rent` },
+  { title: `သွေးစစ်မယ်`, path: `lab` },
+  { title: `ဆေးဝယ်မယ်`, path: `med` },
+];
 
-
-const Header = ({checkWidth, navLinks}) => {
-
+const Header = ({checkWidth}) => {  
   return (
    <Grid container direction="column"  
    spacing={4}
@@ -34,15 +40,15 @@ const Header = ({checkWidth, navLinks}) => {
         paddingLeft: checkWidth === 'xs'  ?  10 : 40, 
         paddingRight:checkWidth === 'xs'  ?  10 : 40
         }}>
-     {navLinks.map(({ title, path }) => (
-    <Grid item xs={6} sm={4} md={2} key={title}>
-      <Link as={`${path}`} href={path} key={title}>
-        <a style={styles.linkText}>
-          {title}
-        </a>
-      </Link>
-    </Grid>
-  ))}
+        {navLinks.map(({ title, path }) => (
+            <Grid item xs={6} sm={4} md={2} key={title}>
+              <Link href={path === '/' ? path : `/service/${path}`} key={title}>
+                <a style={styles.linkText}>
+                  {title}
+                </a>
+              </Link>
+            </Grid>
+          ))}
      </Grid>
    </Grid>    
   );

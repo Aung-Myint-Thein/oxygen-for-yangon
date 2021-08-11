@@ -10,8 +10,6 @@ import Head from 'next/head';
 import styles from '../../styles/main';
 import ContentContainer from '../Layout/Content';
 import ScrollToTop from '../ScrollToTop'; // add scroll to top arrow if required
-import oxygenList from '../../api/oxygen/oxygenData'; // table data from api
-// import { COLUMNS } from '../../api/oxygen/columns'; // registered table columns
 import { BasicTable } from '../BasicTable'; // reusable and responsive react-table with sorting, pagination and global filter
 
 const Main = ({width, entities, columns}) => (

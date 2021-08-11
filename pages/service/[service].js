@@ -1,28 +1,36 @@
 import { google } from 'googleapis';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../src/components/Layout/Layout';
-import Main from '../src/components/main/Main';
+import Layout from '../../src/components/Layout/Layout';
+import Main from '../../src/components/main/Main';
 
-export default function Service({entities, columns, navLinks}) {
+export default function Service({entities, columns}) {
   return (
-    <Layout navLinks={navLinks}>
+    <Layout>
       <Main entities={entities} columns={columns} />
     </Layout>
   );
 }
 
-export async function getServerSideProps({ params }){
+// This function gets called at build time
+export async function getStaticPaths() {
+  const paths = [
+    {params: { service: 'o2_buy' }},
+    {params: { service: 'o2_refill' }},
+    {params: { service: 'o2_rent' }},
+    {params: { service: 'lab' }},
+    {params: { service: 'med' }},
+  ]
 
-  console.log(params);
-  const service = params.service[0];
+  return { paths, fallback: true };
+}
 
-  var filteredOxygenList = [];
+export async function getStaticProps({ params }) {
+  const service = params.service;
+
+  let filteredOxygenList = [];
   const oxygenList = [];
   const COLUMNS = [];
-  const navLinks = [
-    { title: `All`, path: `/` },
-  ];
   const services = [];
   const { privateKey } = JSON.parse(process.env.GOOGLE_PRIVATE_KEY || '{ privateKey: null }')
   const auth = new google.auth.GoogleAuth({
@@ -105,25 +113,23 @@ export async function getServerSideProps({ params }){
     }
   }
 
-  for ( var i = 0; i < responseServiceProvider.data.values.length; i++){
-    let provider = responseServiceProvider.data.values[i];
-    services.push(provider[1]);
-  }
-  let uniqueServicesArray = [...new Set(services)];
-  for ( var i = 1; i < uniqueServicesArray.length; i++){
-    navLinks.push({
-      title: uniqueServicesArray[i], path: `/${uniqueServicesArray[i]}`
-    })
-  }
+  const mapPathToService = {
+    o2_buy: 'အောက်ဆီဂျင်ရှာမယ်',
+    o2_refill: 'အောက်ဆီဂျင်ဖြည့်မယ်',
+    o2_rent: 'အောက်ဆီဂျင်အငှါး',
+    lab: 'သွေးစစ်မယ်',
+    med: 'ဆေးဝယ်မယ်'
+  };
 
   filteredOxygenList = oxygenList.filter(function (provider){
-      return provider.ဝန်ဆောင်မှုအမျိုးအစား === service  ;
+    return provider.ဝန်ဆောင်မှုအမျိုးအစား === mapPathToService[service];
   });
+
   return {
     props: {
       entities: filteredOxygenList, 
       columns: COLUMNS,
-      navLinks: navLinks
-    }
+    },
+    revalidate: 1,
   }
 }

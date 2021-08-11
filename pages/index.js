@@ -3,10 +3,10 @@ import React from 'react';
 import Layout from '../src/components/Layout/Layout';
 import Main from '../src/components/main/Main';
 
-export default function Home({entities, columns, navLinks}) {
+export default function Home({entities, columns}) {
 
   return (
-    <Layout navLinks={navLinks}>
+    <Layout>
       <Main entities={entities} columns={columns} />
     </Layout>
   );
@@ -15,9 +15,6 @@ export default function Home({entities, columns, navLinks}) {
 export async function getServerSideProps(){
   const oxygenList = [];
   const COLUMNS = [];
-  const navLinks = [
-    { title: `All`, path: `/` },
-  ];
   const services = [];
   const { privateKey } = JSON.parse(process.env.GOOGLE_PRIVATE_KEY || '{ privateKey: null }')
   const auth = new google.auth.GoogleAuth({
@@ -100,21 +97,10 @@ export async function getServerSideProps(){
     }
   }
 
-  for ( var i = 0; i < responseServiceProvider.data.values.length; i++){
-    let provider = responseServiceProvider.data.values[i];
-    services.push(provider[1]);
-  }
-  let uniqueServicesArray = [...new Set(services)];
-  for ( var i = 1; i < uniqueServicesArray.length; i++){
-    navLinks.push({
-      title: uniqueServicesArray[i], path: `/${uniqueServicesArray[i]}`
-    })
-  }
   return {
     props: {
       entities: oxygenList, 
       columns: COLUMNS,
-      navLinks: navLinks
     }
   }
 }
