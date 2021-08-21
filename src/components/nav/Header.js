@@ -30,7 +30,7 @@ const Header = ({checkWidth}) => {
         justifyContent: 'center', 
         alignItems: 'center'
         }}>
-     <img alt="elearning certificate" src="/oxygen-myanmar.png" width="800" height="480" style={styles.mainLogoResponsive} />
+     <img alt="Myanmar Medical Directory" src="/MMD-Logo.png" width="800" height="480" style={styles.mainLogoResponsive} />
      </Grid>
      <Grid container 
       columns={{ xs: 2, sm: 3, md: 6 }}  

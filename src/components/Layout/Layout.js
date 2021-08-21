@@ -29,7 +29,7 @@ const Layout = ({ children, width, navLinks }) => (
        <footer style={styles.footerContainer}>
        <Grid style={styles.footer}>
         <Typography style={styles.footerText}>
-          Copyright&copy; 2021. All rights reserved by Oxygen for Yangon.
+          Copyright&copy; 2021. All rights reserved by Myanmar Medical Directory.
          </Typography>
        </Grid>
     </footer>

@@ -141,7 +141,7 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: center;
-        background-color: #39603D;
+        background-color: #2e3184;
         color: white;
       }
       `}</style>
@@ -174,7 +174,7 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
               <tr {...row.getRowProps()}>
               {row.cells.map((cell)=> {
                 return checkWidth === 'xs' ?
-                  cell.column.Header === 'facebook' ?
+                  cell.column.Header === 'facebook page' ?
                     <p {...cell.getCellProps()}>
                       <a href={cell.value}>{cell.value}</a>
                     </p>
@@ -183,7 +183,7 @@ export const BasicTable = ({checkWidth, tableData, tableColumn}) => {
                       <span>{cell.render('Header')}{' : '}</span>{cell.render('Cell')}
                     </p> // table cell ui for mobile
                 : 
-                  cell.column.Header === 'facebook' ?
+                  cell.column.Header === 'facebook page' ?
                     <td {...cell.getCellProps()}><a href={cell.value}>{cell.value}</a></td> 
                     :
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td> // for table cell ui for web

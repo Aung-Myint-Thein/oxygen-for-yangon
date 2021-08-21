@@ -16,7 +16,7 @@ const Main = ({width, entities, columns}) => (
   <ContentContainer>
      <Head>
       <title>
-         Oxygen for Yangon 
+        Myanmar Medical Directory 
       </title>
       <meta name="keywords" content="oxygen,township,yangon,team,places," />
     </Head>

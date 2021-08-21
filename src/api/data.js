@@ -94,8 +94,6 @@ export const getDataByService = async (service) => {
     }
   }
 
-  console.log(oxygenList);
-
   filteredOxygenList = oxygenList.filter(function (provider){
     return provider.ဝန်ဆောင်မှုအမျိုးအစား === mapPathToService[service];
   });
